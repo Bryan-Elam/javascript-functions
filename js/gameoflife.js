@@ -10,18 +10,8 @@ function same([x, y], [j, k]) {
 
 // The game state to search for `cell` is passed as the `this` value of the function.
 function contains(cell) {
-  
-  
-    for (i = 0; i < this.state.length; i++) {
-      if (this.state[i][0] === y) {
-        for (j = 1; j < this.state[i].length; j++) {
-          if (this.state[i][j] === x) {
-            return true;
-          }
-        }
-      }
-    }
-    return false;
+  return this.some((c) => same(c, cell)); 
+ 
   }
 
 
