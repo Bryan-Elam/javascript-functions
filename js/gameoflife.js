@@ -24,7 +24,7 @@ const corners = (state = []) => {
     return {
       topRight: [0, 0],
       bottomLeft: [0, 0]
-    }
+    };
   }
 
 
@@ -33,7 +33,7 @@ const ys = state.map(([_, y]) => y);
 return {
   topRight: [Math.max(...xs), Math.max(...ys)],
   bottomLeft: [Math.min(...xs), Math.min(...ys)]
-}
+};
 };
 
 const printCells = (state) => {
@@ -58,13 +58,7 @@ const isAlive = (cell, state) => {
         [-1,-1], [0,-1], [1,-1]
     ];
     return neighborDeltas.map((d) => sum(d, [x,y]));
-const corners = (state = []) => {
-  if (state.length === 0) {
-    return {
-      topRight: [0, 0],
-      bottomLeft: [0, 0]
-    };
-  }
+
 
 
 
