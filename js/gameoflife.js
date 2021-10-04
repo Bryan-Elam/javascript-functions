@@ -63,8 +63,6 @@ const willBeAlive = (cell, state) => {
   );
 };
 
-
-
 const calculateNext = (state) => {
   const { bottomLeft, topRight } = corners(state);
   let result = [];
