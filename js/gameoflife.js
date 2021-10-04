@@ -51,11 +51,22 @@ const printCells = (state) => {
 
 const isAlive = (cell, state) => {
   const livingNeighbors = getLivingNeighbors(cell, state);
-const getNeighborsOf = ([x, y]) => [
-  [x-1, y+1], [x, y+1], [x+1, y+1],
-  [x-1, y],             [x+1, y],
-  [x-1, y-1], [x, y-1], [x+1, y-1]
-];
+  const getNeighborsOf = ([x,y]) => {
+    const neighborDeltas = [
+        [-1,1],  [0,1],  [1,1],
+        [-1,0],  /* */,  [1,0],
+        [-1,-1], [0,-1], [1,-1]
+    ];
+    return neighborDeltas.map((d) => sum(d, [x,y]));
+const corners = (state = []) => {
+  if (state.length === 0) {
+    return {
+      topRight: [0, 0],
+      bottomLeft: [0, 0]
+    };
+  }
+
+
 
   return (
     livingNeighbors.length === 3
